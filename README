@@ -1,0 +1,28 @@
+SSORM PHP
+Super Simple Object Relational Mapper
+
+A quick and easy way to manage objects in PHP
+No fancy installs, just upload and go.
+
+Also, I hope this is a good learning tool for learning about dealing with
+objects in PHP 5.
+
+Manual: Coming -
+Generators: Coming -
+Clean install (i.e. no pre-configured models): Coming -
+
+Demo: http://adrane.com/ssorm/
+Add and delete slides and subslides as you like, but please be appropriate in
+your comments, I want this to be a friendly environment!!
+
+NOTE! Current version comes with 2 related models, slides and subslides
+
+INSTRUCTIONS
+To install, simply rename the file config/db_config.php.tmp to db_config.php
+(leave it in the config directory)
+Then point your browser to (root)/config/db_tables.php and it will automatically
+migrate (add the tables) for you! You can, of course edit the db_tables.php
+file to change the data tables you want to use...
+
+Homepage is here:
+http://andrewdrane.com/index.php?option=com_content&view=article&id=49

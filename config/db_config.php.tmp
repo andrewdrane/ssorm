@@ -1,0 +1,11 @@
+<?php
+//Configure as needed.
+$config_db = array(
+    "database"=>"database",
+    "host"=>"localhost",
+    "uname"=>"root",
+    "password"=>"password"
+    );
+
+
+?>
