@@ -39,9 +39,9 @@ sscaf(){
 
 #Generate migration stuff
 #Adds the migration info to your config/db_tables.php file
-makemigration(){
+#makemigration(){
 	#COMING soon
-}
+#}
 
 #Make sure there are enough arguments. Quit if there are too few.
 if [ $# -lt 2 ] #if there are >1 argument
