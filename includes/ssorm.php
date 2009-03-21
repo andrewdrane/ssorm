@@ -7,9 +7,9 @@ db_login();
 * Contains finder and other object functions
 * Creates objects based on Rows of the database
 * Functions mimic Rails in some way - this is intended to make the management
-of 1 to many attributes very easy. Page load times should be quick since there isn't
-very much overhead. This is NOT intended to be as robust - there's CAKE php for that
-and JOOMLA too. Just a stripped down ORM. 
+*  of 1 to many attributes very easy. Page load times should be quick since
+*  there isn't very much overhead. This is NOT intended to be as robust -
+*  there's CAKE php for that and JOOMLA too. Just a stripped down ORM.
 **/
 class Manageable{
     var $fields=array();
@@ -222,6 +222,49 @@ class Manageable{
          $this->save();
          //print_r($this);
      }
+
+     /* Helper for default display modes. Uses (ug) tables, like rails.
+      * adds extra column at end for edit/destroy buttons
+      */
+     function auto_display_headers(){
+        $result="";
+        foreach($this->fields as $field=>$value){
+            if(in_array($field, $this->auto_values)){
+                ; //Don't display auto_value fields
+            }else{
+                $result.= "<th>".$field."</th>";
+            }
+         }
+         return "<tr>".$result."</tr><th></th>";
+     }
+     function auto_display_functions(){
+        return "<tr>".$this->get_auto_display().$this->get_auto_display_functions()."</tr>";
+     }
+     function auto_display(){
+        return "<tr>".$this->get_auto_display()."</tr>";
+     }
+        //some helpers
+        function get_auto_display(){
+            $result="";
+            foreach($this->fields as $field=>$value){
+                if(in_array($field, $this->auto_values)){
+                    ; //Don't display auto_value fields
+                }else{
+                    $result.= "<td>".$this->$field."</td>";
+                }
+             }
+             return $result;
+        }
+        function get_auto_display_functions(){
+            $result="";
+            //add in the buttons
+            $inst=strtolower(get_class($this)); //instance type
+            $result.= "<td>";
+            $result.="<a href='". url_for(array("model"=>"$inst", "action"=>"edit", "id"=>$this->id))."'>Edit</a> ";
+            $result.="<a href='". url_for(array("model"=>"$inst", "action"=>"show", "id"=>$this->id))."'>Show</a> ";
+            $result.="<a href='javascript:if(confirm(\"Are you sure?\")){window.location=\"". url_for(array("model"=>"$inst", "action"=>"destroy", "id"=>"$this->id"))."\";}'>Destroy</a></td>";
+            return $result;
+        }
      
      
      //Helper Methods

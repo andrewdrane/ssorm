@@ -1,6 +1,12 @@
 <? // Show template for %C ?>
 %C ID <?=$co->%c->id;?>
-%C PUT SOME FIELDS HERE
+
+<table>
+<?
+echo $co->%c->auto_display_headers();
+echo $co->%c->auto_display();
+?>
+</table>
 
 
 <br><br>

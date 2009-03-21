@@ -1,12 +1,12 @@
+<table>
 <? // Base index template for %C
 
+echo $co->%t[0]->auto_display_headers();
 foreach($co->%t as $obj){
-    echo "$obj->id";
-    echo "<a href='". url_for(array("model"=>"%c", "action"=>"edit", "id"=>$obj->id))."'>Edit</a> ";
-    echo "<a href='". url_for(array("model"=>"%c", "action"=>"show", "id"=>$obj->id))."'>Show</a> ";
-    echo "<a href='javascript:if(confirm(\"Are you sure?\")){window.location=\"". url_for(array("model"=>"%c", "action"=>"destroy", "id"=>$obj->id))."\";}'>Destroy</a><br>";
+    echo $obj->auto_display_functions();
 }
 echo "<br><br>";
 
 ?>
+</table>
 <a href="<?=url_for(array("model"=>"%c", "action"=>"create")) ?>">NEW</a>
