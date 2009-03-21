@@ -4,7 +4,7 @@
  */
  
  class %C extends Manageable{
-     var $table='%T';
+     var $table='%t';
      var $has_many = array();
 
  }

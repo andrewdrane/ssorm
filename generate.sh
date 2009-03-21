@@ -17,7 +17,7 @@ makescaffold(){
     sscaf "template/model_template.php" $1 $2 $3 "models/$2.php"
 
     #Controller
-    sscaf "template/controller_template.php" $1 $2 $3 "controllers/$3_controller.php"
+    sscaf "template/controller_template.php" $1 $2 $3 "controllers/$2Controller.php"
 
     #Views, index, show, edit, create
     mkdir "views/$3"
@@ -32,7 +32,7 @@ makescaffold(){
 }
 
 sscaf(){
-    cat $1 | sed "s/%C/$2/" | sed "s/%c/$3/" | sed "s/%t/$4/" > $5
+    cat $1 | sed "s/%C/$2/g" | sed "s/%c/$3/g" | sed "s/%t/$4/g" > $5
     echo "Created file $5"
     #echo "$1, $2, $3, $4, $5"
 }

@@ -6,4 +6,4 @@
 	<input type="submit">
 </form>
 
-<a href="<?= url_for(array("model"=>"%C", "action"=>"index")); ?>">Back</a>
+<a href="<?= url_for(array("model"=>"%c", "action"=>"index")); ?>">Back</a>
