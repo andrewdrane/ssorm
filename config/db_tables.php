@@ -24,6 +24,10 @@ $db_tables=array(
         "name"=>"varchar(255) NOT NULL",
         "description"=>"text"
         ),
+    "cats"=>array(
+        "name"=>"varchar(255) NOT NULL",
+        "vexation"=>"text"
+        ),
     );
     
 migrate();
